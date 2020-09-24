@@ -88,8 +88,8 @@ function App() {
     <div className="App">
       <Search onSubmit={searchSubreddit} />
       <h1 onClick={resetSubreddit} id="logo">
-        <span>Redditax</span> <span className="half">Reddit</span>ax
-        <span>Redditax</span>
+        <span aria-hidden="true">Redditax</span> <span>Reddit</span>ax
+        <span aria-hidden="true">Redditax</span>
       </h1>
       {/* <CardGrid /> */}
       {/* <ImageGrid files={reddit.files} /> */}

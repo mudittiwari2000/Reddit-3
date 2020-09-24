@@ -14,13 +14,32 @@
   columns: 4 300px;
 }
 
+/* 3 column Masonry for when screen fits 3 cards on the Home Page */
+@media (max-width: 1810px) {
+  .image-grid {
+    column-count: 3;
+  }
+}
+/* 3 column Masonry for when screen fits 2 cards on the Home Page */
+@media (max-width: 1349px) {
+  .image-grid {
+    column-count: 2;
+  }
+}
+/* 3 column Masonry for when screen fits 1 card on the Home Page */
+@media (max-width: 740px) {
+  .image-grid {
+    column-count: 1;
+  }
+}
+
 img {
   display: block;
   width: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: .5em;
 }
-
 
 .grid-item {
   width: 100%;
@@ -31,12 +50,19 @@ img {
   transition: opacity 300ms ease-out;
 }
 
+.grid-item .normal {
+  width: 100%;
+  height: 100%;
+  border-radius: .5em;
+}
+
 .grid-item:hover .onhover {
   opacity: 1;
   transition: opacity 200ms ease-out;
 }
 
 .grid-item:hover .onhover .overlay {
+  border-radius: .5em;
   opacity: 1;
   transition: opacity 300ms ease-out 100ms;
 }
