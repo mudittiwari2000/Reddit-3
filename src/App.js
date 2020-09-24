@@ -18,7 +18,9 @@ function App() {
   });
 
   async function searchSubreddit(subreddit) {
-    const response = await axios.get(`${corsproxy}${url}${subreddit}.json?raw_json=1`);
+    const response = await axios.get(
+      `${corsproxy}${url}${subreddit}.json?raw_json=1`
+    );
     setReddit({
       ...reddit,
       currentSubreddit: subreddit,
@@ -35,7 +37,8 @@ function App() {
 
   async function nextPage() {
     const response = await axios.get(
-      `${url}${reddit.currentSubreddit}.json?count=${reddit.page * 25}&after=${reddit.after
+      `${url}${reddit.currentSubreddit}.json?count=${reddit.page * 25}&after=${
+        reddit.after
       }&raw_json=1`
     );
 
@@ -51,7 +54,8 @@ function App() {
 
   async function prevPage() {
     const response = await axios.get(
-      `${url}${reddit.currentSubreddit}.json?count=${(reddit.page - 1) * 25 - 1
+      `${url}${reddit.currentSubreddit}.json?count=${
+        (reddit.page - 1) * 25 - 1
       }&before=${reddit.before}&raw_json=1`
     );
 
@@ -70,8 +74,8 @@ function App() {
     reddit.currentSubreddit === "" ? (
       <CardGrid />
     ) : (
-        <ImageGrid files={reddit.files} />
-      );
+      <ImageGrid files={reddit.files} />
+    );
 
   const resetSubreddit = () => {
     setReddit({
@@ -84,13 +88,22 @@ function App() {
     <div className="App">
       <Search onSubmit={searchSubreddit} />
       <h1 onClick={resetSubreddit} id="logo">
-        <span>Redditax</span> <span className="half">Reddit</span>ax<span>Redditax</span>
+        <span>Redditax</span> <span className="half">Reddit</span>ax
+        <span>Redditax</span>
       </h1>
       {/* <CardGrid /> */}
       {/* <ImageGrid files={reddit.files} /> */}
       {homepage}
-      <button onClick={prevPage}>Prev</button>
-      <button onClick={nextPage}>Next</button>
+      <div className="buttons">
+        <button onClick={prevPage} className="prevButton">
+          <i className="fas fa-arrow-left"></i>&nbsp;
+          Prev
+        </button>
+        <button onClick={nextPage} className="nextButton">
+          Next&nbsp;
+          <i className="fas fa-arrow-right"></i>
+        </button>
+      </div>
     </div>
   );
 }
