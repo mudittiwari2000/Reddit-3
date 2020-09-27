@@ -1,2 +1,2 @@
-# Reddit Gallery 1
+# Reddit Gallery
 # Reddit-3
